@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Risks
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block content %}
+<h1>Risks</h1>
+
+<p>To add a new risk, go to the page for the <a href="/features/">feature</a>, <a href="/components/">design component</a>, or <a href="/bugs/">bug</a> and click the 'add risk' link.
+</p>
+
+{% if risk_list %}
+<ul>
+{% for risk in risk_list %}
+<li><a href="/risks/{{ risk.id }}/">{{ risk.title }}</a>: {{ risk.status }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>There are no risks for the {{ session_info.active_product.name }} product.</p>
+{% endif %}
+{% endblock %}
+

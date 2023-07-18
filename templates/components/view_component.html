@@ -1,0 +1,158 @@
+{% extends "view_template.html" %}
+
+{% block title %}
+Design Components
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+Design Component
+{% endblock %}
+
+{% block main_links %}
+<a href="/components/add/">Add new design component</a> |
+<a href="/components/">View all design components</a>
+{% endblock %}
+
+{% if component %}
+{% block sub_links %}
+<a href="/components/{{ component.id }}/edit/">Edit</a>
+  | <a href="/components/{{ component.id }}/delete/">Delete</a>
+  | <a href="/risks/add/component/{{ component.id }}/">Add Risk</a> 
+  | <a href="/attributes/add/{{ component.id }}/">Add Attribute</a>
+  | <a href="/attributes/{{ component.id }}/">View all attributes</a>
+{% endblock %}
+
+{% block left_col %}
+<p>
+Component name: {{ component.title }}
+</p>
+
+<p>Component ID: {{ component.identifier }}
+
+<p>
+Design description:
+<br/>{{ component.design_description }}
+</p>
+
+<p>
+Implementation description:<br/>
+{{ component.implementation_description }}
+</p>
+
+<p>
+Approval status: {{ component.approval_status }}
+</p>
+
+<p>
+Release:
+{% if component.release %} <!-- this is foreign key field -->
+   <a href="/releases/{{ component.release.id }}/">{{ component.release }}</a>
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Categories:
+{% if component.category.all.0 %}   <!-- this is manyToMany field -->
+   {% for category in component.category.all %}
+     
+    {{ category.category }} / 
+     
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+{% endblock %}
+
+{% block right_col %}
+
+
+<p>
+Design Engineers:
+{% if component.responsible_engineer.all.0 %}   <!-- this is manyToMany field -->
+   {% for member in component.responsible_engineer.all %}
+      <br/>
+      <a href="/members/{{ member.id }}/">{{ member.first_name }}  {{ member.last_name }}</a>, {{ member.title }}
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Parent Component:
+{% if component.parent %} <!-- this is foreign key field -->
+   <a href="/components/{{ component.parent.id }}/">{{ component.parent }}</a>
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Attributes:
+{% if attributes %}  
+   {% for attribute in attributes %}
+      <br/>
+      <a href="/attributes/{{ component.id }}/{{ attribute.id }}/">{{ attribute.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+
+<p>
+Supporting Use Cases:
+{% if component.usecases.all.0 %}   <!-- this is manyToMany field -->
+   {% for usecase in component.usecases.all %}
+      <br/>
+      <a href="/usecases/{{ usecase.id }}/">{{ usecase.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+<p>
+
+<p>
+Supporting Requirements:
+{% if component.requirements.all.0 %}   <!-- this is manyToMany field -->
+   {% for reqmt in component.requirements.all %}
+      <br/>
+      <a href="/requirements/{{ reqmt.id }}/">{{ reqmt.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>Risks:
+{% if risks %}
+  {% for risk in risks %}
+     <br/>
+     <a href="/risks/{{ risk.id }}/">{{ risk.title }}</a>
+  {% endfor %}
+{% else %}
+None
+{% endif %}
+</p>
+
+
+<p>Notes:<br/>
+{{ component.notes }}
+</p>
+
+{% endblock %}
+
+<!-- *** IF NO components *** -->
+{% else %}
+<p>No components are available.</p>
+{% endif %}
+{% endblock %
+
+

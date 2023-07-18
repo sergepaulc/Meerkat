@@ -1,0 +1,114 @@
+{% extends "edit_template.html" %}
+
+{% block title %}
+
+{% if mode == 'create' %}
+    Add Use Case
+{% endif %}
+
+{% if mode == 'edit' %}
+    Edit Use Case
+{% endif %}
+
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+
+{% if mode == 'create' %}
+Add Use Case
+{% endif %}
+
+{% if mode == 'edit' %}
+Edit Use Case
+{% endif %}
+
+{% endblock heading %}
+
+{% block sub_heading %}
+{% if message %}
+  <div class="errors"> {{ message }}</div>
+  <br/>
+{% endif %}
+{% endblock sub_heading %}
+
+{% block form_header %}
+
+{% if mode == 'create' %}
+<form id="add-usecase-form" action="/usecases/add/" method="post" enctype="multipart/form-data">
+{% endif %}
+
+{% if mode == 'edit' %}
+<form id="edit-usecase-form" action="/usecases/{{ usecase.id }}/edit/" method="post" enctype="multipart/form-data">
+{% endif %}
+
+{% endblock form_header %}
+
+{% block left_col %}
+
+      <label for="identifier">{{ form.identifier.label }}</label>
+      <div class="field">{{ form.identifier }}</div>
+      <div class="errors">{{ form.identifier.errors.0 }}</div>
+      <br/>
+
+      <label for="title">{{ form.title.label }}</label>
+      <div class="field">{{ form.title }}</div>
+      <div class="errors">{{ form.title.errors.0 }}</div>
+      <br/>
+
+      <label for="description">{{ form.description.label }}</label>
+      <div class="field">{{ form.description }}</div>
+      <div class="errors">{{ form.description.errors.0 }}</div>
+      <br/>
+
+      <label for="source">{{ form.source.label }}</label>
+      <div class="field">{{ form.source }}</div>
+      <div class="errors">{{ form.source.errors.0 }}</div>
+      <br/>
+
+{% endblock left_col %}
+{% block right_col %}
+
+      <label for="responsible_engineer">{{ form.responsible_engineer.label }}</label>
+      <div class="field">{{ form.responsible_engineer }}</div>
+      <div class="errors">{{ form.responsible_engineer.errors.0 }}</div>
+      <br/>
+
+      <label for="target_market">{{ form.target_market.label }}</label>
+      <div class="field">{{ form.target_market }}</div>
+      <div class="errors">{{ form.target_market.errors.0 }}</div>
+      <br/>
+
+      <label for="category">{{ form.category.label }}</label>
+      <div class="field">{{ form.category }}</div>
+      <div class="errors">{{ form.category.errors.0 }}</div>
+      <br/>
+
+      <label for="notes">{{ form.notes.label }}</label>
+      <div class="field">{{ form.notes }}</div>
+      <div class="errors">{{ form.notes.errors.0 }}</div>
+      <br/>
+
+{% endblock right_col %}
+
+{% block form_submit %}
+
+{% if mode == 'create' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Add</a>
+
+{% endif %}
+
+{% if mode == 'edit' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Save</a>
+
+{% endif %}
+
+
+{% csrf_token %}
+
+</form>
+
+{% endblock %}
+

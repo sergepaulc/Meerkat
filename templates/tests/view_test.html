@@ -1,0 +1,122 @@
+{% extends "view_template.html" %}
+
+{% block title %}
+    Tests
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+Test
+{% endblock %}
+
+{% block main_links %}
+<a href="/tests/add/">Add new test</a> |
+<a href="/tests/">View all tests</a>
+{% endblock %}
+
+{% if test %}
+
+{% block sub_links %}
+<a href="/tests/{{ test.id }}/edit/">Edit</a> |
+<a href="/tests/{{ test.id }}/delete/">Delete</a>
+ | <a href="/bugs/add/test/{{ test.id }}">Add Bug</a>
+{% endblock %}
+
+{% block left_col %}
+<p>
+Title: {{ test.title }}
+</p>
+
+<p>
+Status: {{ test.status }} 
+</p>
+
+<p>
+Pass/fail criteria: {{ test.pass_fail_criteria }}
+</p>
+
+
+<p>
+Test description:
+<br/>
+{{ test.test_description }}
+</p>
+
+<p>
+Features tested:
+{% if test.features.all.0 %}   <!-- this is manyToMany field -->
+   {% for feature in test.features.all %}
+      <br/>
+      <a href="/features/{{ feature.id }}/">{{ feature.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Responsible Engineers:
+{% if test.responsible_engineer.all.0 %}   <!-- this is manyToMany field -->
+   {% for member in test.responsible_engineer.all %}
+      <br/>
+      <a href="/members/{{ member.id }}/">{{ member.first_name }}  {{ member.last_name }}</a>, {{ member.title }}
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+{% endblock %}
+
+{% block right_col %}
+<p>Test ID: {{ test.identifier }}
+</p>
+
+<p>
+Categories:
+{% if test.category.all.0 %}   <!-- this is manyToMany field -->
+   {% for category in test.category.all %}
+
+       {{ category }} /
+
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+
+<p>
+Implementation description:
+<br/>
+{{ test.implementation_description }}
+</p>
+
+
+<p>Bugs:
+{% if bugs %}
+   {% for bug in bugs %}
+      <br/>
+      <a href="/bugs/{{ bug.id }}/">{{ bug.title }}</a>
+   {% endfor %}
+{% else %}
+None
+{% endif %}
+</p>
+
+<p>Notes:<br/>
+{{ test.notes }}
+</p>
+
+
+{% endblock %}
+
+
+<!-- *** IF NO TESTS *** -->
+{% else %}
+<p>No tests are available.</p>
+{% endif %}
+
+

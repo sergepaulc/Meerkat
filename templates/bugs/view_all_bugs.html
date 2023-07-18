@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+Bugs
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block content %}
+<h1>Bugs</h1>
+
+<p>To add a new bug, go to the <a href="/tests/">test</a> or <a href="/betatests/">beta test</a>, and click the 'add bug' link.</p>
+
+{% if bug_list %}
+<ul>
+{% for bug in bug_list %}
+<li><a href="/bugs/{{ bug.id }}/">{{ bug.title }}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+<p>There are no bugs are for the {{ session_info.active_product.name }} product.</p>
+{% endif %}
+{% endblock %}
+

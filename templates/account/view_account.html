@@ -1,0 +1,52 @@
+{% extends "view_template.html" %}
+
+{% block title %}
+ Account
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+Account Profile
+{% endblock %}
+
+{% block main_links %}
+
+{% endblock %}
+
+
+{% block sub_links %}
+<a href="/account/edit/">Edit account</a> |
+<a href="#">Change password</a>
+
+{% endblock %}
+
+{% block left_col %}
+
+
+<img src="{{ MEDIA_URL }}{{ user.profile.photo }}" width="150" class="leftImg">
+
+
+<p>
+{{ user.first_name }} {{ user.last_name }}
+</p>
+
+<p>
+Username: {{ user.username }}
+</p>
+
+<p>
+Email: {{ user.email }}
+</p>
+
+{% endblock %}
+
+{% block right_col %}
+
+
+{% endblock %}
+
+
+
+

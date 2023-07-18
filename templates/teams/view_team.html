@@ -1,0 +1,92 @@
+{% extends "view_template.html" %}
+
+{% block title %}
+    {{ team.name }}
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+Team
+{% endblock %}
+
+{% block main_links %}
+<a href="/teams/add/">Add new team</a> |
+<a href="/teams/">View all teams</a> 
+{% endblock %}
+
+{% if team %}
+{% block sub_links %}
+<a href="/teams/{{ team.id }}/edit/">Edit</a> |
+<a href="/teams/{{ team.id }}/delete/">Delete Team</a>
+ | <a href="/members/{{ team.id }}/add/">Add team member</a>
+{% endblock %}
+
+{% block left_col %}
+
+<img src="{{ MEDIA_URL }}{{ team.logo }}" width="150" class="leftImg">
+
+<p>
+Name: {{ team.name }}
+</p>
+
+<p>
+Description:<br/> {{ team.description }}
+</p>
+
+<p>
+Products:<br/>
+{% if team.products.all.0 %}   <!-- this is manyToMany field -->
+   {% for product in team.products.all %}
+     <a href="/products/{{ product.id }}/">{{ product.name }}</a><br/>
+    {% endfor %}
+{% else %}
+None
+{% endif %}
+
+
+</p>
+
+
+{% endblock %}
+
+{% block right_col %}
+<p>
+Responsibilities:
+ {% if responsibilities %}
+
+  {% for responsibility  in responsibilities.all %}
+      <br/>
+      {{ responsibility }} / <a href="/releases/{{ responsibility.release.id }}/">Release {{ responsibility.release.name }}</a>
+  {% endfor %}
+
+{% else %}
+   <br/>
+   None
+{% endif %}
+</p>
+
+<p>
+Team Members:
+ {% if members %}
+   
+  {% for member in members.all %}
+      <br/>
+      <a href="/members/{{ member.id }}/">{{ member.first_name }} {{ member.last_name }}</a>, {{ member.title }}
+  {% endfor %}
+  
+{% else %}
+   <br/>
+   None
+{% endif %}
+</p>
+{% endblock %}
+
+
+<!-- *** IF NO TEAMS *** -->
+{% else %}
+<p>No teams are available.</p>
+{% endif %}
+
+

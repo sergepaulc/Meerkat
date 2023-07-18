@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Milestones
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block content %}
+<h1>Milestones</h1>
+
+<a href="/milestones/add/">Add new milestone</a>
+<br/>
+
+{% if milestone_list %}
+<ul>
+{% for milestone in milestone_list %}
+<li><a href="/milestones/{{ milestone.id }}/">{{ milestone.title }}</a>: {{ milestone.start_date|date:"D, M j, o"  }} to {{ milestone.end_date|date:"D, M j, o" }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>There are no milestones for the {{ session_info.active_product.name }} product.</p>
+{% endif %}
+{% endblock %}
+

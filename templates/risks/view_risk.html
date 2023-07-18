@@ -1,0 +1,126 @@
+{% extends "view_template.html" %}
+
+{% block title %}
+Risk
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+
+{% block heading %}
+Risk
+{% endblock %}
+
+
+
+{% block sub_heading %}
+To add a new risk, go to the page for the feature, design component, or bug and click the 'add risk' link.
+{% endblock %}
+
+
+{% block main_links %}
+
+<a href="/risks/">View all risks</a>
+{% endblock %}
+
+{% if risk %}
+
+{% block sub_links %}
+<a href="/risks/{{ risk.id }}/edit/">Edit</a> |
+<a href="/risks/{{ risk.id }}/delete/">Delete</a>
+{% endblock %}
+
+{% block left_col %}
+
+{% if feature %}
+<p>
+Related Feature:
+<a href="/features/{{ feature.id }}/">{{ feature.title }}</a>
+</p>
+{% endif %}
+
+{% if component %}
+<p>
+Related Design Component:
+<a href="/components/{{ component.id }}/">{{ component.title }}</a>
+</p>
+{% endif %}
+
+{% if bug %}
+<p>
+Related Bug:
+<a href="/bugs/{{ bug.id }}/">{{ bug.title }}</a>
+</p>
+{% endif %}
+
+<p>
+Risk ID: {{ risk.identifier }}
+</p>
+
+<p>
+Release: 
+{% if component %}
+<a href="/releases/{{ component.release.id }}/">{{ component.release.name }}</a>
+
+{% elif feature %}
+<a href="/features/{{ feature.release.id }}/">{{ feature.release.name }}</a>
+
+{% elif bug %}
+<a href="/bugs/{{ bug.release.id }}/">{{ bug.release.name }}</a>
+
+{% endif %}
+</p>
+
+<p>
+Title: {{ risk.title }}
+</p>
+
+<p>
+Description: {{ risk.description }}
+</p>
+
+{% endblock %}
+{% block right_col %}
+
+<p>
+Categories:
+{% if risk.category.all.0 %}   <!-- this is manyToMany field -->
+   {% for category in risk.category.all %}
+    
+      {{ category.category }} / 
+    
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Probability: {{ risk.probability }}
+</p>
+
+<p>
+Severity: {{ risk.severity }}
+</p>
+
+<p>
+Status: {{ risk.status }}
+<p>
+
+
+<p>Notes:<br/>
+{{ risk.notes }}
+</p>
+
+{% endblock %}
+
+<!-- *** IF NO risks *** -->
+{% else %}
+<p>No risks are available.</p>
+{% endif %}
+
+
+
+
+

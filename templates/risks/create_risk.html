@@ -1,0 +1,162 @@
+{% extends "edit_template.html" %}
+
+{% block title %}
+
+{% if mode == 'create' %}
+    Add Risk
+{% endif %}
+
+{% if mode == 'edit' %}
+    Edit Risk
+{% endif %}
+
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+
+{% if mode == 'create' %}
+Add Risk
+{% endif %}
+
+{% if mode == 'edit' %}
+Edit Risk
+{% endif %}
+
+{% endblock heading %}
+
+{% block sub_heading %}
+{% if message %}
+  <div class="errors"> {{ message }}</div>
+  <br/>
+{% endif %}
+{% endblock sub_heading %}
+
+{% block form_header %}
+
+{% if mode == 'create' %}
+
+{% if type == 'feature' %}
+
+Feature: <a href="/features/{{ obj.id }}/">{{ obj.title }}</a>
+<br/><br/>
+
+<form id="add-risk-form" action="/risks/add/feature/{{ obj.id }}/" method="post" enctype="multipart/form-data">
+
+{% endif %}
+
+{% if type == 'component' %}
+
+Design Component: <a href="/components/{{ obj.id }}/">{{ obj.title }}</a>
+<br/><br/>
+
+<form id="add-risk-form" action="/risks/add/component/{{ obj.id }}/" method="post" enctype="multipart/form-data">
+
+{% endif %}
+
+
+{% if type == 'bug' %}
+
+Bug: <a href="/bugs/{{ obj.id }}/">{{ obj.title }}</a>
+<br/><br/>
+
+<form id="add-risk-form" action="/risks/add/bug/{{ obj.id }}/" method="post" enctype="multipart/form-data">
+
+{% endif %}
+
+{% endif %} <!-- end if mode = create -->
+
+{% if mode == 'edit' %}
+
+{% if type == 'feature' %}
+Feature: <a href="/features/{{ obj.id }}/">{{ obj.title }}</a>
+<br/><br/>
+{% endif %}
+
+{% if type == 'component' %}
+Design Component: <a href="/components/{{ obj.id }}/">{{ obj.title }}</a>
+<br/><br/>
+{% endif %}
+
+{% if type == 'bug' %}
+Bug: <a href="/bugs/{{ obj.id }}/">{{ obj.title }}</a>
+<br/><br/>
+{% endif %}
+
+<form id="edit-risk-form" action="/risks/{{ risk.id }}/edit/" method="post" enctype="multipart/form-data">
+
+{% endif %} <!-- end if mode = edit -->
+
+{% endblock form_header %}
+
+{% block left_col %}
+
+      <label for="identifier">{{ form.identifier.label }}</label>
+      <div class="field">{{ form.identifier }}</div>
+      <div class="errors">{{ form.identifier.errors.0 }}</div>
+      <br/>
+
+      <label for="title">{{ form.title.label }}</label>
+      <div class="field">{{ form.title }}</div>
+      <div class="errors">{{ form.title.errors.0 }}</div>
+      <br/>
+
+      <label for="description">{{ form.description.label }}</label>
+      <div class="field">{{ form.description }}</div>
+      <div class="errors">{{ form.description.errors.0 }}</div>
+      <br/>
+
+      <label for="category">{{ form.category.label }}</label>
+      <div class="field">{{ form.category }}</div>
+      <div class="errors">{{ form.category.errors.0 }}</div>
+      <br/>
+
+
+{% endblock left_col %}
+{% block right_col %}
+
+
+      <label for="probability">{{ form.probability.label }}</label>
+      <div class="field">{{ form.probability }}</div>
+      <div class="errors">{{ form.probability.errors.0 }}</div>
+      <br/>
+
+      <label for="severity">{{ form.severity.label }}</label>
+      <div class="field">{{ form.severity }}</div>
+      <div class="errors">{{ form.severity.errors.0 }}</div>
+      <br/>
+
+      <label for="status">{{ form.status.label }}</label>
+      <div class="field">{{ form.status }}</div>
+      <div class="errors">{{ form.status.errors.0 }}</div>
+      <br/>
+
+      <label for="notes">{{ form.notes.label }}</label>
+      <div class="field">{{ form.notes }}</div>
+      <div class="errors">{{ form.notes.errors.0 }}</div>
+      <br/>
+
+
+{% endblock right_col %}
+
+{% block form_submit %}
+
+{% if mode == 'create' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Add</a>
+
+{% endif %}
+
+{% if mode == 'edit' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Save</a>
+
+{% endif %}
+
+
+{% csrf_token %}
+
+</form>
+
+{% endblock %}
+

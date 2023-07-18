@@ -1,0 +1,36 @@
+{% extends "view_all_template.html" %}
+
+{% block title %}
+Teams
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+Teams
+{% endblock heading %}
+
+{% block main_links %}
+<a href="/teams/add/">Add new team</a>
+{% endblock main_links %}
+
+{% if team_list %}
+
+{% block list %}
+
+<ul>
+{% for team in team_list %}
+<li><a href="/teams/{{ team.id }}/">{{ team.name }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock list %}
+
+{% else %}
+
+No teams are available.
+
+{% endif %}
+
+

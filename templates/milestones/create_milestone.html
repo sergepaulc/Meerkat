@@ -1,0 +1,135 @@
+{% extends "edit_template.html" %}
+{% load field_attrs %}
+
+{% block title %}
+
+{% if mode == 'create' %}
+    Add Milestone
+{% endif %}
+
+{% if mode == 'edit' %}
+    Edit Milestone
+{% endif %}
+
+{% endblock title %}
+
+
+{% block headtags %}
+
+<link rel="stylesheet" type="text/css" href="/static/jquery/css/ui-lightness/jquery-ui-1.10.3.custom.css"/>
+<script type="text/javascript" src="/static/jquery/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/static/jquery/js/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="/static/jquery/js/jquery-ui-1.10.3.custom.min.js"></script>
+
+<script>
+$(function() {
+$( "#id_end_date" ).datepicker();
+$( "#datepicker" ).datepicker();
+
+});
+</script>
+
+{% endblock headtags %}
+
+
+{% block heading %}
+
+{% if mode == 'create' %}
+Add Milestone
+{% endif %}
+
+{% if mode == 'edit' %}
+Edit Milestone
+{% endif %}
+
+{% endblock heading %}
+
+{% block sub_heading %}
+{% if message %}
+  <div class="errors"> {{ message }}</div>
+  <br/>
+{% endif %}
+{% endblock sub_heading %}
+
+{% block form_header %}
+
+{% if mode == 'create' %}
+<form id="add-milestone-form" action="/milestones/add/" method="post" enctype="multipart/form-data">
+{% endif %}
+
+{% if mode == 'edit' %}
+<form id="edit-milestone-form" action="/milestones/{{ milestone.id }}/edit/" method="post" enctype="multipart/form-data">
+{% endif %}
+
+{% endblock form_header %}
+
+{% block left_col %}
+
+      <label for="title">{{ form.title.label }}</label>
+      <div class="field">{{ form.title }}</div>
+      <div class="errors">{{ form.title.errors.0 }}</div>
+      <br/>
+
+      <label for="description">{{ form.description.label }}</label>
+      <div class="field">{{ form.description }}</div>
+      <div class="errors">{{ form.description.errors.0 }}</div>
+      <br/>
+
+      <label for="category">{{ form.category.label }}</label>
+      <div class="field">{{ form.category }}</div>
+      <div class="errors">{{ form.category.errors.0 }}</div>
+      <br/>
+
+      <label for="start_date">{{ form.start_date.label }}</label>
+      <div class="field">{{ form.start_date|attr:"id=datepicker" }}</div>
+      <div class="errors">{{ form.start_date.errors.0 }}</div>
+      <br/>
+
+      <label for="end_date">{{ form.end_date.label }}</label>
+      <div class="field">{{ form.end_date }}</div>
+      <div class="errors">{{ form.end_date.errors.0 }}</div>
+      <br/>
+
+{% endblock left_col %}
+{% block right_col %}
+
+      <label for="release">{{ form.release.label }}</label>
+      <div class="field">{{ form.release }}</div>
+      <div class="errors">{{ form.release.errors.0 }}</div>
+      <br/>
+
+      <label for="predecessors">{{ form.predecessors.label }}</label>
+      <div class="field">{{ form.predecessors }}</div>
+      <div class="errors">{{ form.predecessors.errors.0 }}</div>
+      <br/>
+
+      <label for="percent_complete">{{ form.percent_complete.label }}</label>
+      <div class="field">{{ form.percent_complete }}</div>
+      <div class="errors">{{ form.percent_complete.errors.0 }}</div>
+      <br/>
+
+      <label for="notes">{{ form.notes.label }}</label>
+      <div class="field">{{ form.notes }}</div>
+      <div class="errors">{{ form.notes.errors.0 }}</div>
+      <br/>
+
+{% endblock right_col %}
+
+{% block form_submit %}
+
+{% if mode == 'create' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Add</a>
+
+{% endif %}
+
+{% if mode == 'edit' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Save</a>
+
+{% endif %}
+
+
+{% csrf_token %}
+
+</form>
+
+{% endblock %}

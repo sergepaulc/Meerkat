@@ -1,0 +1,151 @@
+{% extends "edit_template.html" %}
+
+{% block title %}
+
+{% if mode == 'create' %}
+    Add Bug
+{% endif %}
+
+{% if mode == 'edit' %}
+    Edit Bug
+{% endif %}
+
+
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+
+{% if mode == 'create' %}
+Add bug
+{% endif %}
+
+{% if mode == 'edit' %}
+Edit bug
+{% endif %}
+
+{% endblock heading %}
+
+
+{% block sub_heading %}
+{% if message %}
+  <div class="errors"> {{ message }}</div>
+  <br/>
+{% endif %}
+{% endblock sub_heading %}
+
+{% block form_header %}
+{% if type = 'test' %}
+
+<p>Test: <a href="/tests/{{ test.id }}">{{ test.title }}</a>
+
+   {% if mode == 'create' %}
+      <form id="add-bug-form" action="/bugs/add/test/{{ test.id }}/" method="post" enctype="multipart/form-data">
+   {% endif %}
+
+   {% if mode == 'edit' %}
+      <form id="edit-bug-form" action="/bugs/{{ bug.id }}/edit/" method="post" enctype="multipart/form-data">
+   {% endif %}
+
+{% endif %}
+
+{% if type == 'betatest' %}
+
+<p>Beta Test: <a href="/betatests/{{ test.id }}">Beta {{ test.release.name }}</a>
+
+      {% if mode == 'create' %}
+         <form id="add-bug-form" action="/bugs/add/betatest/{{ test.id }}/" method="post" enctype="multipart/form-data">
+      {% endif %}
+
+      {% if mode == 'edit' %}
+         <form id="edit-bug-form" action="/bugs/{{ bug.id }}/edit/" method="post" enctype="multipart/form-data">
+      {% endif %}
+
+{% else %}
+
+<div class="errors>Error: This bug is not associated with a test or beta test.</div>
+
+<form id="add-bug-form" action="/bugs/add/betatest/{{ betatest.id }}/" method="post" enctype="multipart/form-data">
+
+{% endif %}
+
+{% endblock form_header %}
+
+{% block left_col %}
+
+      <label for="identifier">{{ form.identifier.label }}</label>
+      <div class="field">{{ form.identifier }}</div>
+      <div class="errors">{{ form.identifier.errors.0 }}</div>
+      <br/>
+
+      <label for="title">{{ form.title.label }}</label>
+      <div class="field">{{ form.title }}</div>
+      <div class="errors">{{ form.title.errors.0 }}</div>
+      <br/>
+
+      <label for="description">{{ form.description.label }}</label>
+      <div class="field">{{ form.description }}</div>
+      <div class="errors">{{ form.description.errors.0 }}</div>
+      <br/>
+
+      <label for="features">{{ form.features.label }}</label>
+      <div class="field">{{ form.features }}</div>
+      <div class="errors">{{ form.features.errors.0 }}</div>
+      <br/>
+
+      <label for="severity">{{ form.severity.label }}</label>
+      <div class="field">{{ form.severity }}</div>
+      <div class="errors">{{ form.severity.errors.0 }}</div>
+      <br/>
+
+      <label for="status">{{ form.status.label }}</label>
+      <div class="field">{{ form.status }}</div>
+      <div class="errors">{{ form.status.errors.0 }}</div>
+      <br/>
+
+      <label for="release">{{ form.release.label }}</label>
+      <div class="field">{{ form.release }}</div>
+      <div class="errors">{{ form.release.errors.0 }}</div>
+      <br/>    
+
+{% endblock left_col %}
+{% block right_col %}
+
+      <label for="category">{{ form.category.label }}</label>
+      <div class="field">{{ form.category }}</div>
+      <div class="errors">{{ form.category.errors.0 }}</div>
+      <br/>
+
+      <label for="resolution">{{ form.resolution.label }}</label>
+      <div class="field">{{ form.resolution }}</div>
+      <div class="errors">{{ form.resolution.errors.0 }}</div>
+      <br/>
+  
+      <label for="notes">{{ form.notes.label }}</label>
+      <div class="field">{{ form.notes }}</div>
+      <div class="errors">{{ form.notes.errors.0 }}</div>
+      <br/>
+
+
+{% endblock right_col %}
+
+{% block form_submit %}
+
+{% if mode == 'create' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Add</a>
+
+{% endif %}
+
+{% if mode == 'edit' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Save</a>
+
+{% endif %}
+
+
+{% csrf_token %}
+
+</form>
+
+{% endblock %}

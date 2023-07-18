@@ -1,0 +1,95 @@
+{% extends "edit_template.html" %}
+
+{% block title %}
+
+{% if mode == 'create' %}
+    Submit Customer Feedback
+{% endif %}
+
+{% if mode == 'edit' %}
+    Edit Customer Feedback
+{% endif %}
+
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+
+{% if mode == 'create' %}
+Submit Customer Feedback
+{% endif %}
+
+{% if mode == 'edit' %}
+Edit Customer Feedback
+{% endif %}
+
+{% endblock heading %}
+
+{% block sub_heading %}
+{% if message %}
+  <div class="errors"> {{ message }}</div>
+  <br/>
+{% endif %}
+
+<p> Feature: <a href="/features/{{ feature.id }}/">{{ feature.title }}</a>
+</p>
+{% endblock sub_heading %}
+
+
+{% block form_header %}
+
+{% if mode == 'create' %}
+<form id="add-feedback-form" action="/feedback/add/{{ feature.id }}/" method="post" enctype="multipart/form-data">
+{% endif %}
+
+{% if mode == 'edit' %}
+<form id="edit-feedback-form" action="/feedback/{{ feedback.id }}/edit/" method="post" enctype="multipart/form-data">
+{% endif %}
+
+{% endblock form_header %}
+
+{% block left_col %}
+
+      <label for="betatest">{{ form.betatest.label }}</label>
+      <div class="field">{{ form.betatest }}</div>
+      <div class="errors">{{ form.betatest.errors.0 }}</div>
+      <br/>
+       
+       <p>NEED TO change this so that customer field is auto-linked to currently logged in user. Also, shouldn't ANYONE be able
+       to submit feedback, not just customer?</p>
+
+      <label for="customer">{{ form.customer.label }}</label>
+      <div class="field">{{ form.customer }}</div>
+      <div class="errors">{{ form.customer.errors.0 }}</div>
+      <br/>
+
+{% endblock left_col %}
+{% block right_col %}
+
+      <label for="feedback">{{ form.feedback.label }}</label>
+      <div class="field">{{ form.feedback }}</div>
+      <div class="errors">{{ form.feedback.errors.0 }}</div>
+      <br/>
+
+{% endblock right_col %}
+
+{% block form_submit %}
+
+{% if mode == 'create' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Add</a>
+
+{% endif %}
+
+{% if mode == 'edit' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Save</a>
+
+{% endif %}
+
+
+{% csrf_token %}
+
+</form>
+
+{% endblock %}

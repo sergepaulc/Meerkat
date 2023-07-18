@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+Members
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block content %}
+{% if member %}
+
+<h1>
+{{ member.first_name }} {{ member.last_name }}
+</h1>
+
+<p>
+Position title: 
+{% if member.title %}
+{{ member.title }}
+{% else %}
+None
+{% endif %}
+</p>
+
+
+<p>Team:
+{% if member.team.all.0 %}   <!-- this is manyToMany field -->
+   {% for team in member.team.all %}
+      <br/>
+      <a href="/teams/{{ team.id }}/">{{ team.name }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+
+</p>
+
+
+
+
+<!-- *** IF NO member *** -->
+{% else %}
+<p>No members are available.</p>
+{% endif %}
+{% endblock %}
+

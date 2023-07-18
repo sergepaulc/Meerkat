@@ -1,0 +1,95 @@
+{% extends "view_template.html" %}
+
+{% block title %}
+    Use Case
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+Use Case
+{% endblock %}
+
+{% block main_links %}
+<a href="/usecases/add/">Add new use case</a> |
+<a href="/usecases/">View all use cases</a>
+{% endblock %}
+
+{% if usecase %}
+
+{% block sub_links %}
+<a href="/usecases/{{ usecase.id }}/edit/">Edit</a> |
+<a href="/usecases/{{ usecase.id }}/delete/">Delete</a>
+{% endblock %}
+
+{% block left_col %}
+<p>
+Use Case ID: {{ usecase.identifier }}
+</p>
+
+
+<p>
+Title: {{ usecase.title }}
+</p>
+
+<p>
+Description: {{ usecase.description }}
+</p>
+
+<p>
+Source:
+{{ usecase.source }}
+</p>
+
+{% endblock %}
+
+{% block right_col %}
+<p>Product Manager or Engineer:<br/>
+{% if usecase.responsible_engineer.all.0 %}
+
+   {% for engineer in usecase.responsible_engineer.all %}
+
+      <a href="/members/{{ engineer.id }}/">{{ engineer.first_name }} {{ engineer.last_name }}</a>, {{ engineer.title }}
+      <br/>
+   {% endfor %}
+
+{% else %}
+
+   None
+
+{% endif %}
+<p>
+
+
+<p>
+Target market: {{ usecase.target_market }}
+</p>
+
+<p>
+Categories:
+{% if usecase.category.all.0 %}   <!-- this is manyToMany field -->
+   {% for category in usecase.category.all %}
+    
+   {{ category }} /  
+    
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+
+<p>
+Notes: <br/>
+{{ usecase.notes }}
+</p>
+
+{% endblock %}
+
+<!-- *** IF NO USECASES *** -->
+{% else %}
+<p>No usecases are available.</p>
+{% endif %}
+
+

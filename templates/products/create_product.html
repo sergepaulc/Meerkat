@@ -1,0 +1,83 @@
+{% extends "edit_template.html" %}
+
+{% block title %}
+{% if mode == 'create' %}
+    Add Product
+{% endif %}
+
+{% if mode == 'edit' %}
+    Edit Product
+{% endif %}
+
+
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+
+{% if mode == 'create' %}
+Add product
+{% endif %}
+
+{% if mode == 'edit' %}
+Edit product
+{% endif %}
+
+{% endblock heading %}
+
+{% block sub_heading %}
+{% if message %}
+  <div class="errors"> {{ message }}</div>
+  <br/>
+{% endif %}
+{% endblock sub_heading %}
+
+{% block form_header %}
+
+{% if mode == 'create' %}
+<form id="add-product-form" action="/products/add/" method="post" enctype="multipart/form-data">
+{% endif %}
+
+{% if mode == 'edit' %}
+<form id="edit-product-form" action="/products/{{ product.id }}/edit/" method="post" enctype="multipart/form-data">
+{% endif %} 
+
+{% endblock form_header %}
+
+{% block left_col %}
+
+      <label for="name">{{ form.name.label }}</label>
+      <div class="field">{{ form.name }}</div>
+      <div class="errors">{{ form.name.errors.0 }}</div>
+      <br/>
+
+{% endblock left_col %}
+{% block right_col %}
+
+     <label for="description">{{ form.description.label }}</label>
+      <div class="field">{{ form.description }}</div>
+      <div class="errors">{{ form.description.errors.0 }}</div>
+      <br/>
+    
+{% endblock right_col %}
+
+{% block form_submit %}
+
+{% if mode == 'create' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Add</a>
+
+{% endif %}
+
+{% if mode == 'edit' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Save</a>
+
+{% endif %}
+
+
+{% csrf_token %}
+
+</form>
+
+{% endblock %}

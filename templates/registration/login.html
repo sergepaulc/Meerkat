@@ -1,0 +1,56 @@
+{% extends "public_base.html" %}
+
+
+{% block title %}Login{% endblock %}
+
+{% block headtags %}
+
+{% endblock %}
+
+{% block content %}
+
+<h1>Login</h1>
+
+<div class = "errors">{{ message }}
+<br/>
+</div>
+
+<div class = "left">
+  <form id="login-form" method="post" action="{% url apps.public.views.auth.process_login %}">
+
+      <label for="id_username">{{ form.username.label }}</label>
+      {{ form.username }}
+      <div class="errors">{{ form.username.errors.as_ul }}</div>
+</div>
+
+
+<div class = "left leftPadding">
+      <label for="id_password">{{ form.password.label }}</label>
+      {{ form.password }}
+      <div class="errors">{{ form.password.errors.as_ul }}</div>
+</div>
+
+
+<div class = "left leftPadding">
+<a href="#" onclick="document.forms[0].submit();" class="blueButton">Login</a>
+</div>
+
+<br/><br/>
+      <a href="/accounts/password_reset/">Forgot Password</a>
+
+<br/><br/>
+New to Meerkat? <a href="/account/registration/">Click here to register</a><br/>
+
+
+
+  {{ form.next }}
+
+
+  {% csrf_token %}
+
+
+
+  </form>
+
+{% endblock %}
+

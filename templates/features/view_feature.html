@@ -1,0 +1,156 @@
+{% extends "view_template.html" %}
+
+{% block title %}
+Features
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+
+{% block heading %}
+Feature
+{% endblock %}
+
+{% block main_links %}
+<a href="/features/add/">Add new feature</a> |
+<a href="/features/">View all features</a>
+{% endblock %}
+
+{% if feature %}
+
+{% block sub_links %}
+<a href="/features/{{ feature.id }}/edit/">Edit</a>
+ | <a href="/features/{{ feature.id }}/delete/">Delete</a>
+ | <a href="/risks/add/feature/{{ feature.id }}/">Add Risk</a>
+ | <a href="/feedback/add/{{ feature.id }}">Submit Customer Feedback</a>
+{% endblock %}
+
+{% block left_col %}
+<p>
+Feature title: {{ feature.title }}
+</p>
+
+<p>Feature ID: {{ feature.identifier }}
+</p>
+
+
+<p>
+Feature description:<br/>
+{{ feature.design_description }}
+</p>
+
+<p>
+Implementation description:<br/>
+{{ feature.implementation_description }}
+</p>
+
+<p>
+Approval status: {{ feature.approval_status }}
+</p>
+
+<p>
+Release:
+{% if feature.release %} <!-- this is foreign key field -->
+   <a href="/releases/{{ feature.release.id }}/">{{ feature.release }}</a>
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Categories:
+{% if feature.category.all.0 %}   <!-- this is manyToMany field -->
+   {% for category in feature.category.all %}
+     
+      {{ category.category }} /  
+     
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Supporting Use Cases:
+{% if feature.usecases.all.0 %}   <!-- this is manyToMany field -->
+   {% for usecase in feature.usecases.all %}
+      <br/>
+      <a href="/usecases/{{ usecase.id }}/">{{ usecase.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+{% endblock %}
+
+{% block right_col %}
+
+<p>
+Supporting Requirements:
+{% if feature.requirements.all.0 %}   <!-- this is manyToMany field -->
+   {% for reqmt in feature.requirements.all %}
+      <br/>
+      <a href="/requirements/{{ reqmt.id }}/">{{ reqmt.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Supporting Design Components:
+{% if feature.component.all.0 %}   <!-- this is manyToMany field -->
+   {% for component in feature.component.all %}
+      <br/>
+      <a href="/components/{{ component.id }}/">{{ component.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>Risks: 
+{% if risks %}
+  {% for risk in risks %}
+     <br/>
+     <a href="/risks/{{ risk.id }}/">{{ risk.title }}</a>
+  {% endfor %}
+{% else %}
+None
+{% endif %}
+</p>
+
+<p>
+Development Engineers:
+{% if feature.responsible_engineer.all.0 %}   <!-- this is manyToMany field -->
+   {% for member in feature.responsible_engineer.all %}
+      <br/>
+      <a href="/members/{{ member.id }}/">{{ member.first_name }}  {{ member.last_name }}</a>, {{ member.title }}
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Development start date: {{ feature.start_date|date:"D, M j, o" }}
+</p>
+
+<p>
+Development end date: {{ feature.end_date|date:"D, M j, o" }} 
+</p>
+
+<p>Notes:<br/>
+{{ feature.notes }}
+</p>
+
+{% endblock %}
+
+<!-- *** IF NO features *** -->
+{% else %}
+<p>No features are available.</p>
+{% endif %}
+
+

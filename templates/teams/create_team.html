@@ -1,0 +1,109 @@
+{% extends "edit_template.html" %}
+
+{% block title %}
+{% if mode == 'create' %}
+    Add Team
+{% endif %}
+
+{% if mode == 'edit' %}
+    Edit Team
+{% endif %}
+
+
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+
+{% if mode == 'create' %}
+Add team
+{% endif %}
+
+{% if mode == 'edit' %}
+Edit team
+{% endif %}
+
+{% endblock heading %}
+
+{% block sub_heading %}
+{% if message %}
+  <div class="errors"> {{ message }}</div>
+  <br/>
+{% endif %}
+{% endblock sub_heading %}
+
+{% block form_header %}
+
+{% if mode == 'create' %}
+<form id="add-team-form" action="/teams/add/" method="post" enctype="multipart/form-data">
+{% endif %}
+
+{% if mode == 'edit' %}
+<form id="edit-team-form" action="/teams/{{ team.id }}/edit/" method="post" enctype="multipart/form-data">
+{% endif %} 
+
+{% endblock form_header %}
+
+{% block left_col %}
+
+      <label for="team_name">{{ form.team_name.label }}</label>
+      <div class="field">{{ form.team_name }}</div>
+      <div class="errors">{{ form.team_name.errors.0 }}</div>
+      <br/>
+
+     <label for="description">{{ form.description.label }}</label>
+      <div class="field">{{ form.description }}</div>
+      <div class="errors">{{ form.description.errors.0 }}</div>
+      <br/>
+
+      <label for="logo">{{ form.logo.label }}</label>
+      <div class="field">{{ form.logo }}</div>
+      <div class="errors">{{ form.logo.errors.0 }}</div>
+      <br/>
+
+
+<p>*Should be able to add multiple responsibilities, but need to figure out how want to do that if each responsibility has to be associated
+with a unique product and release</p>
+
+      <label for="responsibility">{{ form.responsibility.label }}</label>
+      <div class="field">{{ form.responsibility }}</div>
+      <div class="errors">{{ form.responsibility.errors.0 }}</div>
+      
+{% endblock left_col %}
+{% block right_col %}
+
+<p>Select the product release for this responsibility:</p> 
+
+      <label for="products">{{ form.products.label }}</label>
+      <div class="field">{{ form.products }}</div>
+      <div class="errors">{{ form.products.errors.0 }}</div>
+      <br/>
+
+
+     <label for="release">{{ form.release.label }}</label>
+      <div class="field">{{ form.release }}</div>
+      <div class="errors">{{ form.release.errors.0 }}</div>
+      <br/>
+
+{% endblock right_col %}
+
+{% block form_submit %}
+
+{% if mode == 'create' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Add</a>
+{% endif %}
+
+{% if mode == 'edit' %}
+<a href="#" onclick="document.forms[0].submit();" class="blueButton right">Save</a>
+
+
+{% endif %}
+
+
+{% csrf_token %}
+
+</form>
+
+{% endblock %}

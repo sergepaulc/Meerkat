@@ -1,0 +1,154 @@
+{% extends "view_template.html" %}
+
+{% block title %}
+Releases
+{% endblock %}
+
+{% block headtags %}
+{% endblock %}
+
+{% block heading %}
+Release
+{% endblock heading %}
+
+{% block main_links %}
+<a href="/releases/add/">Add new release</a> |
+<a href="/releases/">View all releases</a>
+{% endblock main_links %}
+
+{% block sub_heading %}
+*Note: Deleting this release will automatically delete the beta test associated with this release.
+{% endblock sub_heading %}
+
+{% if release %}
+
+{% block sub_links %}
+<a href="/releases/{{ release.id }}/edit/">Edit</a>
+ | <a href="/releases/{{ release.id }}/delete/">Delete</a>
+ | <a href="/betatests/{{ betatest.id }}/">View Beta Test</a>
+{% endblock sub_links %}
+
+{% block left_col %}
+<p>
+Name: {{ release.name }}
+</p>
+
+<p>
+Release date: {{ release.release_date|date:"D, M j, o" }}
+</p>
+
+
+<p>
+Target market: {{ release.market }}
+</p>
+
+<p>
+Goals/Themes: 
+{% if release.goals %}
+   {{ release.goals }}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Milestones:
+{% if milestones %}
+   {% for milestone in milestones.all %}
+      <br/>
+      <a href="/milestones/{{ milestone.id }}/">{{ milestone.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Features:
+{% if features %}  
+   {% for feature in features.all %}
+      <br/>
+      <a href="/features/{{ feature.id }}/">{{ feature.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+<p>
+Risks:
+{% if risks %}               
+   {% for risk in risks %}
+      <br/>
+      <a href="/risks/{{ risk.id }}/">{{ risk.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+{% endblock left_col %}
+
+{% block right_col %}
+
+
+<p>
+Bugs:
+{% if bugs %}   
+   {% for bug in bugs.all %}
+      <br/>
+      <a href="/bugs/{{ bug.id }}/">{{ bug.title }}</a>
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+</p>
+
+
+<p>
+Product Manager:
+{% if release.product_manager %}
+   {% for member in release.product_manager.all %}
+      <br/>
+      <a href="/members/{{ member.id }}/">{{ member.first_name }} {{ member.last_name }}</a>, {{ member.title }}
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+
+</p>
+
+
+<p>
+Release Manager:
+{% if release.responsible_engineer %}
+   {% for member in release.responsible_engineer.all %}
+      <br/>
+      <a href="/members/{{ member.id }}/">{{ member.first_name }} {{ member.last_name }}</a>, {{ member.title }}
+   {% endfor %}
+{% else %}
+   None
+{% endif %}
+
+</p>
+
+
+<p>
+Pass/fail criteria: {{ release.pass_fail_criteria }}
+</p>
+
+
+
+<p>Notes:<br/>
+{{ release.notes }}
+</p>
+
+{% endblock right_col %}
+
+<!-- *** IF NO release *** -->
+{% else %}
+<p>No releases are available.</p>
+{% endif %}
+
+
+
