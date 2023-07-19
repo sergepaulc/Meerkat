@@ -1,6 +1,6 @@
 # Meerkat Dev
 
-**Introducing Meerkat**
+## Introducing Meerkat**
 
 While there are a lot of tools for software engineers for tracking stories, tasks, issues, and bugs, there are very few tools for product managers.
 
@@ -25,7 +25,7 @@ Meerkat includes everything that a product manager needs to document, track, and
 
 All those features are provided in an easy-to-use workflow through a Web interface.
 
-**Meerkat Features**
+## Meerkat Features**
 
 In Meerkat, product development starts with use cases and ends in a release.
 Product development is made of teams, and involves risks that need to be assessed during the development process.
@@ -33,7 +33,7 @@ And, products have road maps.
 
 Meerkat provides the following modules:
 
-***Use cases:***
+### Use cases:
 + Attributes:
   + Identification
   + Title
@@ -46,7 +46,7 @@ Meerkat provides the following modules:
 + Is defined by: A description
 + Involves: A product manager
 
-***Requirements:***
+### Requirements:
 + Attributes:
   + Identification
   + Title
@@ -62,7 +62,7 @@ Meerkat provides the following modules:
 + Is linked to: A release
 + Involves: A product manager
 
-***Design:***
+### Design:
 
 + Attributes:
   + Identification
@@ -76,23 +76,23 @@ Is defined by: A description, or a documentation, or an implementation
 Implements: A requirement, or a use case
 Involves: a designer or an architect
 
-***Features:***
+### Features:
 
-***Tests:***
+### Tests:
 
-***Beta:***
+### Beta:
 
-***Releases:***
+### Releases:
 
-***Teams:***
+### Teams:
 
-***Road map:***
+### Road map:
 
-***Risks:***
+### Risks:
 
-***Running Meerkat***
+## Running Meerkat
 
-**Licensing Meerkat**
+## Licensing Meerkat
 
 Meerkat is developed in Python and HTML using Django (www.django.com).
 
