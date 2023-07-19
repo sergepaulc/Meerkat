@@ -33,7 +33,7 @@ And, products have road maps.
 
 Meerkat provides the following modules:
 
-**Use case:**
+***Use cases:***
 + Attributes:
   + Identification
   + Title
@@ -46,7 +46,7 @@ Meerkat provides the following modules:
 + Is defined by: A description
 + Involves: A product manager
 
-**Requirement:**
+***Requirements:***
 + Attributes:
   + Identification
   + Title
@@ -59,13 +59,38 @@ Meerkat provides the following modules:
 
 + Is defined by: A description
 + Implements: A use case
-Is linked to: A release
-Involves: A product manager
++ Is linked to: A release
++ Involves: A product manager
 
-**Use case:**
+***Design:***
 
++ Attributes:
+  + Identification
+  + Title
+  + Category
+  + Parent/Child
+  + Status
+  + History
 
-**Running Meerkat**
+Is defined by: A description, or a documentation, or an implementation
+Implements: A requirement, or a use case
+Involves: a designer or an architect
+
+***Features:***
+
+***Tests:***
+
+***Beta:***
+
+***Releases:***
+
+***Teams:***
+
+***Road map:***
+
+***Risks:***
+
+***Running Meerkat***
 
 **Licensing Meerkat**
 
