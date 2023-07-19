@@ -26,6 +26,7 @@ Meerkat includes everything that a product manager needs to document, track, and
 All those features are provided in an easy-to-use workflow through a Web interface.
 
 **Meerkat Features**
+
 In Meerkat, product development starts with use cases and ends in a release.
 Product development is made of teams, and involves risks that need to be assessed during the development process.
 And, products have road maps.
@@ -35,12 +36,12 @@ Meerkat provides the following modules:
 **Use case:**
 + Attributes:
   + Identification
-  –Title
-  –Category
-  –Target market
-  –Target user
-  –Status
-  –History
+  + Title
+  + Category
+  + Target market
+  + Target user
+  + Status
+  + History
 
 + Is defined by: A description
 + Involves: A product manager
