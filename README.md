@@ -77,137 +77,110 @@ Implements: A requirement, or a use case
 Involves: a designer or an architect
 
 ### Features:
-Attributes:
-Identification
-Title
-Category
-Status
-History
++ Attributes:
+  + Identification
+  + Title
+  + Category
+  + Status
+  + History
 
-Is defined by:
-A description
-A documentation
-An implementation
-Implements:
-A use case
-A requirement
-Involves:
-A development engineer
-Is linked to:
-A test
-A release
-
-
+Is defined by: A description,a documentation, an implementation
+Implements: A use case, a requirement
+Involves: A development engineer
+Is linked to: A test, a release
 
 ### Tests:
-Attributes:
-Identification
-Title
-Category
-Pass/Fail Criteria
-Status
-History
-Is defined by:
-A description
-A documentation
-An implementation
-Implements:
-A feature
-Involves:
-A test engineer
-Is linked to:
-A release
++ Attributes:
+  + Identification
+  + Title
+  + Category
+  + Pass/Fail Criteria
+  + Status
+  + History
+Is defined by: A description,a documentation, an implementation
+Implements: A feature
+Involves: A test engineer
+Is linked to: A release
 
 ### Beta:
-Attributes:
-Customer Identification
-Release Deployed
-Features Enabled
-Bugs Reported
-Feature Feedback
-History
-
++ Attributes:
+  + Customer Identification
+  + Release Deployed
+  + Features Enabled
+  + Bugs Reported
+  + Feature Feedback
+  + History
 
 Customer attributes:
-Name
-Location
+  + Name
+  + Location
 
 ### Releases:
-
-Attributes:
-Release Date
-Pass/Fail Criteria
-List of Features
-Risks
-Bugs
-Location/Market
-Product Documentation (Attachment)
-Marketing Materials (Attachment)
-Press Releases (Attachment)
-
++ Attributes:
+  + Release Date
+  + Pass/Fail Criteria
+  + List of Features
+  + Risks
+  + Bugs
+  + Location/Market
+  + Product Documentation (Attachment)
+  + Marketing Materials (Attachment)
+  + Press Releases (Attachment)
 
 ### Teams:
-Product teams:
-Product management (head/members)
-Design/Architecture
-Development
-Testing
-Beta
-Release
-Management
-Team attributes:
-Name
-Description
-Picture
-Permissions 
-Member attributes:
-First/last name
-Team
-Position
-Picture
-Permissions
-
-Team/Member responsibility:
-Use Case
-Requirements
-Design
-Features
-Testing
-Beta
-Release
-Risks
-Road Map
-
++ Product teams:
+  + Product management (head/members)
+  + Design/Architecture
+  + Development
+  + Testing
+  + Beta
+  + Release
+  + Management
++ Team attributes:
+  + Name
+  + Description
+  + Picture
+  + Permissions 
++ Member attributes:
+  + First/last name
+  + Team
+  + Position
+  + Picture
+  + Permissions
++ Team/Member responsibility:
+  + Use Case
+  + Requirements
+  + Design
+  + Features
+  + Testing
+  + Beta
+  + Release
+  + Risks
+  + Road Map
 
 ### Road map:
-Attributes:
-Date
-Goals
-Release
-Features
-Markets
-Customers  
++ Attributes:
+  + Date
+  + Goals
+  + Release
+  + Features
+  + Markets
+  + Customers  
 
 ### Risks:
-Attributes:
-Identification
-Title
-Category
-Probability
-Severity
-Dependency
-Status
-History
-![image](https://github.com/sergepaulc/meerkat/assets/132861836/bf05dba6-e0a5-437c-8162-9f3e33658f49)
++ Attributes:
++ Identification
++ Title
++ Category
++ Probability
++ Severity
++ Dependency
++ Status
++ History
 
 Is defined by:
-A description
-Is linked to:
-A feature
-A release
-![image](https://github.com/sergepaulc/meerkat/assets/132861836/cd22e92d-fad9-4b1a-aeac-5b4a7026e991)
-
-
++ A description
++ Is linked to: A feature, a release
 
 ## Running Meerkat
 
