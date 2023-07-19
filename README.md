@@ -12,8 +12,8 @@ Meerkat provides a complete tool for product managers to manage the product life
 
 Meerkat include everything that a product manager needs to document, track, and share about his product with his team such as:
 
-product use cases
-product requirements
+product use cases;
+product requirements;
 product design and architecture
 product features
 road map and key milestones
