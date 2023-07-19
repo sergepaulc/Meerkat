@@ -1,4 +1,4 @@
-# meerkat
+# Meerkat Dev
 
 **Introducing Meerkat**
 
@@ -8,27 +8,29 @@ In many cases, product managers have to develop many documents and upload them o
 
 Meerkat intends to change that :)
 
-Meerkat provides a complete tool for product managers to manage the product life cycle.
+Meerkat provides a complete tool for product managers to manage the product life cycle of their products.
 
-Meerkat include everything that a product manager needs to document, track, and share about his product with his team such as:
+Meerkat includes everything that a product manager needs to document, track, and share about his product with his team, and in particular:
 
-- Product use cases
-- Product requirements
-- Product design and architecture
-- Product features
-- Road map and key milestones
-- Releases
+- The product use cases
+- The product requirements
+- The product design and architecture
+- The product features
+- The road map and the key milestones
+- The releases
 - Customer feedback
 - Bugs
 - Beta testing
-- Team members
+- The team members
 
 All those features are provided in an easy-to-use workflow through a Web interface.
 
 **Meerkat Features**
 In Meerkat, product development starts with use cases and ends in a release.
-Product development is made of teams and involves risks that need to be assessed during the development process.
+Product development is made of teams, and involves risks that need to be assessed during the development process.
 And, products have road maps.
+
+Meerkat provides the following modules:
 
 **Use case:**
 - attributes:
