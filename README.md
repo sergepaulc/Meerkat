@@ -18,9 +18,9 @@ Meerkat includes everything that a product manager needs to document, track, and
 - The product features
 - The road map and the key milestones
 - The releases
-- Customer feedback
-- Bugs
-- Beta testing
+- The Customer feedback
+- The product bugs
+- The beta testing of the product
 - The team members
 
 All those features are provided in an easy-to-use workflow through a Web interface.
@@ -45,6 +45,24 @@ Meerkat provides the following modules:
 
 + Is defined by: A description
 + Involves: A product manager
+
+**Requirement:**
++ Attributes:
+  + Identification
+  + Title
+  + Origin
+  + Category
+  + Parent/Child
+  + Priority
+  + Status
+  + History
+
++ Is defined by: A description
++ Implements: A use case
+Is linked to: A release
+Involves: A product manager
+
+**Use case:**
 
 
 **Running Meerkat**
