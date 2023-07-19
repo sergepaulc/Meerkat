@@ -1,6 +1,6 @@
 # Meerkat Dev
 
-## Introducing Meerkat**
+## Introducing Meerkat
 
 While there are a lot of tools for software engineers for tracking stories, tasks, issues, and bugs, there are very few tools for product managers.
 
@@ -25,7 +25,7 @@ Meerkat includes everything that a product manager needs to document, track, and
 
 All those features are provided in an easy-to-use workflow through a Web interface.
 
-## Meerkat Features**
+## Meerkat Features
 
 In Meerkat, product development starts with use cases and ends in a release.
 Product development is made of teams, and involves risks that need to be assessed during the development process.
