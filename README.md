@@ -33,8 +33,8 @@ And, products have road maps.
 Meerkat provides the following modules:
 
 **Use case:**
-- attributes:
-  –Identification
++ Attributes:
+  + Identification
   –Title
   –Category
   –Target market
@@ -42,8 +42,8 @@ Meerkat provides the following modules:
   –Status
   –History
 
-- Is defined by: A description
-- Involves: A product manager
++ Is defined by: A description
++ Involves: A product manager
 
 
 **Running Meerkat**
