@@ -17,11 +17,11 @@ Meerkat includes everything that a product manager needs to document, track, and
 - The product design and architecture
 - The product features
 - The road map and the key milestones
-- The releases
-- The Customer feedback
-- The product bugs
-- The beta testing of the product
+- The product releases
+- The product tests and bugs
+- The beta testing of the product and the customer feedback
 - The team members
+- The risk in the development and launch of the product
 
 All those features are provided in an easy-to-use workflow through a Web interface.
 
@@ -63,7 +63,7 @@ Meerkat provides the following modules:
 + Is linked to: A release
 + Involves: A product manager
 
-### Design:
+### Design Components
 
 + Attributes:
   + Identification
@@ -158,7 +158,7 @@ Meerkat provides the following modules:
   + Risks
   + Road Map
 
-### Road map:
+### Road map & Milestones
 + Attributes:
   + Date
   + Goals
@@ -186,7 +186,7 @@ Meerkat provides the following modules:
 Meerkat is developed in Python and HTML using the Django Web development framework (www.django.com).
 
 To run Meerkat:
-+ Create a folder with the following files:
++ Create a folder named Meerkat with the following files:
     + apps
     + init.py
     + init.pyc
