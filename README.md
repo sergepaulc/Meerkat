@@ -72,9 +72,9 @@ Meerkat provides the following modules:
   + Status
   + History
 
-Is defined by: A description, or a documentation, or an implementation
-Implements: A requirement, or a use case
-Involves: a designer or an architect
++ Is defined by: A description, or a documentation, or an implementation
++ Implements: A requirement, or a use case
++ Involves: a designer or an architect
 
 ### Features:
 + Attributes:
@@ -83,10 +83,10 @@ Involves: a designer or an architect
   + Category
   + Status
   + History
-Is defined by: A description,a documentation, an implementation
-Implements: A use case, a requirement
-Involves: A development engineer
-Is linked to: A test, a release
++ Is defined by: A description,a documentation, an implementation
++ Implements: A use case, a requirement
++ Involves: A development engineer
++ Is linked to: A test, a release
 
 ### Tests:
 + Attributes:
@@ -96,10 +96,10 @@ Is linked to: A test, a release
   + Pass/Fail Criteria
   + Status
   + History
-Is defined by: A description,a documentation, an implementation
-Implements: A feature
-Involves: A test engineer
-Is linked to: A release
++ Is defined by: A description,a documentation, an implementation
++ Implements: A feature
++ Involves: A test engineer
++ Is linked to: A release
 
 ### Beta:
 + Attributes:
