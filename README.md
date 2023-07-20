@@ -197,6 +197,8 @@ To run Meerkat:
     + urls.pyc
     + wsgi.py
     + wsgi.pyc
++ Install Django and create a virtual environment (see the Django documentation for how to proceed) on your machine
++ Type: manage.py meerkat
 
 ## Licensing Meerkat
 This project is licensed under the terms of the MIT license.
