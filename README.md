@@ -25,6 +25,7 @@ Meerkat includes everything that a product manager needs to document, track, and
 
 All those features are provided in an easy-to-use workflow through a Web interface.
 
+
 ## Meerkat Features
 
 In Meerkat, product development starts with use cases and ends in a release.
@@ -180,10 +181,12 @@ Meerkat provides the following modules:
 + Is defined by: A description
 + Is linked to: A feature, a release
 
+
 ## Running Meerkat
 Meerkat is developed in Python and HTML using Django (www.django.com).
 
 Meerkat runs on a Web server.
+
 
 ## Licensing Meerkat
 This project is licensed under the terms of the MIT license.
