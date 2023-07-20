@@ -10,6 +10,13 @@ Meerkat intends to change that :)
 
 Meerkat provides a complete tool for product managers to manage the product life cycle of their products.
 
+Meerkat workflows enable to:
++ Conceptualize a product by defining its use cases and requirements
++ Develop a product by defining its design and its features
++ Test a product and run a beta test
++ Launch product releases and road maps
++ Manage product teams, milestones, and risks
+
 Meerkat includes everything that a product manager needs to document, track, and share about his product with his team, and in particular:
 
 - The product use cases
@@ -199,6 +206,7 @@ To run Meerkat:
     + wsgi.pyc
 + Install Django and create a virtual environment (see the Django documentation for how to proceed) on your machine
 + Type: manage.py meerkat
++ Meerkat should run on port 8000
 
 ## Licensing Meerkat
 This project is licensed under the terms of the MIT license.
