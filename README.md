@@ -183,10 +183,20 @@ Meerkat provides the following modules:
 
 
 ## Running Meerkat
-Meerkat is developed in Python and HTML using Django (www.django.com).
+Meerkat is developed in Python and HTML using the Django Web development framework (www.django.com).
 
-Meerkat runs on a Web server.
-
+To run Meerkat:
++ Create a folder with the following files:
+    + apps
+    + __init__.py
+    + __init__.pyc
+    + settings.py
+    + settings.pyc
+    + templates
+    + urls.py
+    + urls/pyc
+    + wsgi.py
+    + wsgi.pyc
 
 ## Licensing Meerkat
 This project is licensed under the terms of the MIT license.
