@@ -190,7 +190,3 @@ Meerkat runs on a Web server.
 
 ## Licensing Meerkat
 This project is licensed under the terms of the MIT license.
-
-Meerkat is developed in Python and HTML using Django (www.django.com).
-
-Meerkat runs on a Web server.
