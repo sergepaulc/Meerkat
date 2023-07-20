@@ -188,13 +188,13 @@ Meerkat is developed in Python and HTML using the Django Web development framewo
 To run Meerkat:
 + Create a folder with the following files:
     + apps
-    + __init__.py
-    + __init__.pyc
+    + init.py
+    + init.pyc
     + settings.py
     + settings.pyc
     + templates
     + urls.py
-    + urls/pyc
+    + urls.pyc
     + wsgi.py
     + wsgi.pyc
 
