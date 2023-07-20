@@ -111,7 +111,7 @@ Is linked to: A release
   + Feature Feedback
   + History
 
-Customer attributes:
++ Customer attributes:
   + Name
   + Location
 
@@ -169,17 +169,16 @@ Customer attributes:
 
 ### Risks:
 + Attributes:
-+ Identification
-+ Title
-+ Category
-+ Probability
-+ Severity
-+ Dependency
-+ Status
-+ History
+  + Identification
+  + Title
+  + Category
+  + Probability
+  + Severity
+  + Dependency
+  + Status
+  + History
 
-Is defined by:
-+ A description
++ Is defined by: A description
 + Is linked to: A feature, a release
 
 ## Running Meerkat
