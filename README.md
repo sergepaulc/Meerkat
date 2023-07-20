@@ -83,7 +83,6 @@ Involves: a designer or an architect
   + Category
   + Status
   + History
-
 Is defined by: A description,a documentation, an implementation
 Implements: A use case, a requirement
 Involves: A development engineer
