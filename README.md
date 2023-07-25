@@ -207,6 +207,7 @@ To run Meerkat:
 + Install Django and create a virtual environment (see the Django documentation for how to proceed) on your machine
 + Type: manage.py meerkat
 + Meerkat should run on port 8000
++ Meerkat object model will be stored in the Danjgo PostgreSQL data store.
 
 ## Licensing Meerkat
 This project is licensed under the terms of the MIT license.
