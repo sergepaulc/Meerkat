@@ -17,7 +17,7 @@ Meerkat workflows enable to:
 + Launch product releases and road maps
 + Manage product teams, milestones, and risks
 
-Meerkat includes everything that a product manager needs to document, track, and share about his product with his team, and in particular:
+Meerkat includes everything that a product manager needs to document, track, and share about her or his product with his team, and in particular:
 
 - The product use cases
 - The product requirements
