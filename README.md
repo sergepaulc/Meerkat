@@ -28,7 +28,7 @@ Meerkat includes everything that a product manager needs to document, track, and
 - The product tests and bugs
 - The beta testing of the product which includes customer feedback
 - The team members
-- The risk in the development and the launch of the product
+- The risks in the development and the launch of the product
 
 All those features are provided in an easy-to-use workflow through a Web interface.
 
